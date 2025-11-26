@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lago</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: url("lagoF.jpg") center bottom / cover no-repeat fixed;
+}
+
+.titulo {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1E90FF;
+  color: white;
+  padding: 12px 40px;
+  border-radius: 6px;
+  font-size: 28px;
+  font-weight: bold;
+  border: 3px solid black;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  z-index: 10;
+}
+
+.basura-container { position: absolute; }
+
+.objeto {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  width: 50px;
+  height: 50px;
+}
+
+#panelContador {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(30,144,255,0.9);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid black;
+  z-index: 999;
+  width: 200px;
+}
+
+#panelHeader { cursor: pointer; text-align: center; font-weight: bold; margin-bottom: 5px; }
+#panelContent { display: none; }
+#panelContent button { margin-top: 10px; padding: 5px 10px; font-weight: bold; cursor: pointer; }
+
+#mensajeFinal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(30,144,255,0.95);
+  color: white;
+  padding: 25px 40px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 3px solid black;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  text-align: center;
+  display: none;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 1s;
+}
+</style>
+</head>
+<body>
+
+<div class="titulo">Lago</div>
+
+<div id="panelContador">
+  <div id="panelHeader">🗑️ Estadísticas</div>
+  <div id="panelContent">
+    <p id="total">Cantidad de basura total: 80</p>
+    <p id="recolectada">Basura recolectada: 0</p>
+    <p id="faltante">Basura faltante: 80</p>
+    <button id="reiniciarBtn">🔄 Reiniciar</button>
+  </div>
+</div>
+
+<div id="mensajeFinal"></div>
+
+<script>
+const imagenes = [
+  "img/basura1.png","img/basura2.png","img/basura3.png","img/basura4.png",
+  "img/basura5.png","img/basura6.png","img/basura7.png","img/basura8.png",
+  "img/basura9.png","img/basura10.png","img/basura11.png","img/basura12.png",
+  "img/basura13.png","img/basura14.png","img/basura15.png","img/basura16.png"
+];
+
+const totalBasura = 80; // Cambiado a 80 basuras
+let recolectada = 0;
+
+const panelTotal = document.getElementById("total");
+const panelRecolectada = document.getElementById("recolectada");
+const panelFaltante = document.getElementById("faltante");
+const mensajeFinal = document.getElementById("mensajeFinal");
+
+const panelHeader = document.getElementById("panelHeader");
+const panelContent = document.getElementById("panelContent");
+const reiniciarBtn = document.getElementById("reiniciarBtn");
+
+const mensajesFinales = [
+  "¡Lago limpio, agua clara!",
+  "Cada pedazo de basura cuenta",
+  "Gracias por proteger la vida acuática",
+  "Tu esfuerzo mantiene el lago sano",
+  "Basura eliminada, vista despejada",
+  "Eres un héroe del lago",
+  "Los peces te agradecen",
+  "Misión cumplida, espacio natural limpio",
+  "Excelente, seguimos cuidando el lago",
+  "Pequeñas acciones, gran impacto ecológico"
+];
+
+panelHeader.addEventListener("click", () => {
+  panelContent.style.display = (panelContent.style.display === "none") ? "block" : "none";
+});
+
+// Distribución de basura (80 elementos) en orilla y césped
+function crearObjeto(index) {
+  const contenedor = document.createElement("div");
+  contenedor.classList.add("basura-container");
+
+  const obj = document.createElement("img");
+  obj.classList.add("objeto");
+  obj.src = imagenes[Math.floor(Math.random() * imagenes.length)];
+
+  const ventanaWidth = window.innerWidth;
+  const ventanaHeight = window.innerHeight;
+
+  const escala = 0.5 + Math.random() * 0.5;
+  obj.style.transform = `rotate(${(Math.random()*30)-15}deg) scale(${escala})`;
+  obj.style.transformOrigin = "center center";
+
+  // Distribución aleatoria, más dispersa para 80 basuras
+  let y;
+  const zona = Math.random();
+  if(zona < 0.7){
+    y = ventanaHeight * 0.75 + Math.random() * (ventanaHeight * 0.2);
+  } else {
+    y = ventanaHeight * 0.55 + Math.random() * (ventanaHeight * 0.15);
+  }
+  const x = ventanaWidth * 0.05 + Math.random() * (ventanaWidth * 0.9);
+
+  contenedor.style.left = `${x}px`;
+  contenedor.style.top = `${y}px`;
+  contenedor.style.position = "absolute";
+  contenedor.style.zIndex = Math.floor(Math.random() * 100);
+
+  obj.addEventListener("click", () => {
+    contenedor.remove();
+    recolectada++;
+    actualizarPanel();
+  });
+
+  contenedor.appendChild(obj);
+  document.body.appendChild(contenedor);
+}
+
+function actualizarPanel() {
+  panelRecolectada.textContent = `Basura recolectada: ${recolectada}`;
+  panelFaltante.textContent = `Basura faltante: ${totalBasura - recolectada}`;
+  if(recolectada === totalBasura){
+    const mensaje = mensajesFinales[Math.floor(Math.random() * mensajesFinales.length)];
+    mostrarMensajeFinal(mensaje);
+  }
+}
+
+function mostrarMensajeFinal(texto){
+  mensajeFinal.textContent = texto;
+  mensajeFinal.style.display = "block";
+  setTimeout(()=>mensajeFinal.style.opacity=1,50);
+}
+
+reiniciarBtn.addEventListener("click", () => {
+  document.querySelectorAll(".basura-container").forEach(el=>el.remove());
+  recolectada=0;
+  actualizarPanel();
+  mensajeFinal.style.display="none";
+  mensajeFinal.style.opacity=0;
+  for(let i=0;i<totalBasura;i++){ crearObjeto(i); }
+});
+
+// Crear basura inicial
+for(let i=0;i<totalBasura;i++){ crearObjeto(i); }
+
+function reiniciarTodo(){
+  document.querySelectorAll(".basura-container").forEach(el => el.remove());
+  recolectada = 0;
+  actualizarPanel();
+  mensajeFinal.style.display = "none";
+  mensajeFinal.style.opacity = 0;
+  for(let i=0; i<totalBasura; i++){ crearObjeto(i); }
+}
+
+// Registrar comando Ctrl+R
+document.addEventListener("keydown", (e)=>{
+  if (e.ctrlKey && (e.key === "r" || e.key === "R")){
+    e.preventDefault();
+    reiniciarTodo();
+  }
+});
+
+// Función para limpiar toda la basura automáticamente
+function limpiarTodo() {
+  document.querySelectorAll(".basura-container").forEach(el => el.remove());
+  recolectada = totalBasura; // marcar todas como recolectadas
+  actualizarPanel();
+  const mensaje = mensajesFinales[Math.floor(Math.random() * mensajesFinales.length)];
+  mostrarMensajeFinal(mensaje);
+}
+
+// Listener de teclado: Ctrl + L
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && (e.key === "l" || e.key === "L")) {
+    e.preventDefault(); // evita que se abra la barra de direcciones en algunos navegadores
+    limpiarTodo();
+  }
+});
+
+</script>
+</body>
+</html>
