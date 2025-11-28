@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Código</title>
+</head>
+<body>
+
+    <h1>Selecciona el código que deseas ver</h1>
+
+    <!-- Botón hacia codigo_Gene.html -->
+    <button onclick="location.href='./codigo_Gene.html'">
+        Código de Gene
+    </button>
+
+    <!-- Botón hacia codigo_Jose.html -->
+    <button onclick="location.href='./codigo_Jose.html'">
+        Código de José
+    </button>
+
+<script>
+document.addEventListener("keydown", e => {
+    if (e.ctrlKey && e.key.toLowerCase() === "a") {
+        e.preventDefault();
+        window.location.href = "../index.html";
+    }
+});
+</script>
+
+</body>
+</html>

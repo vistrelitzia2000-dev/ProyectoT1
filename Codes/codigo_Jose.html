@@ -383,5 +383,15 @@ pre {
 <span style="color:#569cd6">&lt;/html&gt;</span>
 </pre>
 
+<script>
+document.addEventListener("keydown", function(e) {
+    // Si el usuario presiona Ctrl + A
+    if (e.ctrlKey && e.key.toLowerCase() === "a") {
+        e.preventDefault(); // Evita seleccionar todo
+        history.back();     // Regresa a la página anterior
+    }
+});
+</script>
+
 </body>
 </html>

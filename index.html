@@ -57,5 +57,15 @@ document.querySelectorAll("button").forEach(btn => {
 });
 </script>
 
+<script>
+document.addEventListener("keydown", e => {
+    if (e.ctrlKey && e.key.toLowerCase() === "c") {
+        e.preventDefault();
+        window.location.href = "./Codes/SelectCode.html";
+    }
+});
+</script>
+
+
 </body>
 </html>
