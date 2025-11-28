@@ -44,12 +44,13 @@ document.addEventListener('keydown', function(event) {
 });
 </script>
 
+
 <script>
 document.addEventListener("keydown", e => {
-    // Ctrl + I → Volver al index
-    if (e.ctrlKey && e.key.toLowerCase() === "i") {
+    // Ctrl + Alt + I → Volver al index
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "i") {
         e.preventDefault();
-        window.location.href = "./ProyectoT1/index.html"; // Ruta al index
+        window.location.href = "./index.html"; // Ajusta la ruta si es necesario
     }
 });
 </script>
