@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Código Coloreado</title>
+<style>
+body {
+  background-color: #1e1e1e;
+  color: white;
+  font-family: Consolas, monospace;
+  padding: 20px;
+}
+pre {
+  white-space: pre-wrap;
+  font-size: 15px;
+}
+</style>
+</head>
+<body>
+
+<pre>
+<span style="color:#569cd6">&lt;!DOCTYPE html&gt;</span>
+<span style="color:#569cd6">&lt;html</span> <span style="color:#9cdcfe">lang</span>=<span style="color:#ce9178">"es"</span><span style="color:#569cd6">&gt;</span>
+<span style="color:#569cd6">&lt;head&gt;</span>
+<span style="color:#569cd6">&lt;meta</span> <span style="color:#9cdcfe">charset</span>=<span style="color:#ce9178">"UTF-8"</span><span style="color:#569cd6">&gt;</span>
+<span style="color:#6a9955">&lt;!-- 
+  Esta etiqueta permite que la página use bien los acentos, eñes y símbolos.
+  Sin esto, las letras raras podrían salir mal o con signos extraños.
+--&gt;</span>
+
+<span style="color:#569cd6">&lt;meta</span> <span style="color:#9cdcfe">name</span>=<span style="color:#ce9178">"viewport"</span> <span style="color:#9cdcfe">content</span>=<span style="color:#ce9178">"width=device-width, initial-scale=1.0"</span><span style="color:#569cd6">&gt;</span>
+<span style="color:#6a9955">&lt;!-- 
+  Esta línea hace que la página se vea correctamente en celulares y pantallas pequeñas.
+  Ajusta el zoom y el tamaño automáticamente para que no se descuadre.
+--&gt;</span>
+
+<span style="color:#569cd6">&lt;title&gt;</span><span style="color:#dcdcaa">Selector de Escenarios</span><span style="color:#569cd6">&lt;/title&gt;</span>
+<span style="color:#6a9955">&lt;!--
+  Este es el título que aparece en la pestaña del navegador.
+--&gt;</span>
+
+<span style="color:#569cd6">&lt;style&gt;</span>
+<span style="color:#6a9955">/* 
+  Estilos generales del cuerpo de la página.
+  Aquí organizamos todo para que los elementos estén centrados y tengan un fondo suave.
+  También se coloca una fuente simple para que sea fácil de leer.
+*/</span>
+<span style="color:#c586c0">body</span> {
+  <span style="color:#9cdcfe">display</span>: <span style="color:#c586c0">flex</span>;
+  <span style="color:#9cdcfe">flex-direction</span>: <span style="color:#ce9178">column</span>;
+  <span style="color:#9cdcfe">align-items</span>: <span style="color:#ce9178">center</span>;
+  <span style="color:#9cdcfe">font-family</span>: <span style="color:#ce9178">Arial, sans-serif</span>;
+  <span style="color:#9cdcfe">background-color</span>: <span style="color:#ce9178">#f0f0f0</span>;
+  <span style="color:#9cdcfe">margin</span>: <span style="color:#b5cea8">0</span>;
+  <span style="color:#9cdcfe">padding</span>: <span style="color:#b5cea8">30px</span>;
+}
+<span style="color:#6a9955">/* 
+  Estilo visual del título principal.
+  Solo le damos un color llamativo para que destaque.
+*/</span>
+<span style="color:#c586c0">h1</span> {
+  <span style="color:#9cdcfe">color</span>: <span style="color:#ce9178">#1e90ff</span>;
+}
+<span style="color:#6a9955">/*
+  Estilos para todos los botones:
+  - Tamaño de letra grande
+  - Color verde
+  - Bordes redondeados
+  - Efecto visual cuando se pasa el mouse
+  Esto ayuda a que los botones sean fáciles de identificar y usar.
+*/</span>
+<span style="color:#c586c0">button</span> {
+  <span style="color:#9cdcfe">margin</span>: <span style="color:#b5cea8">8px 0</span>;
+  <span style="color:#9cdcfe">padding</span>: <span style="color:#b5cea8">12px 20px</span>;
+  <span style="color:#9cdcfe">font-size</span>: <span style="color:#b5cea8">18px</span>;
+  <span style="color:#9cdcfe">font-weight</span>: <span style="color:#ce9178">bold</span>;
+  <span style="color:#9cdcfe">color</span>: <span style="color:#ce9178">white</span>;
+  <span style="color:#9cdcfe">background-color</span>: <span style="color:#ce9178">#10b050</span>;
+  <span style="color:#9cdcfe">border</span>: <span style="color:#ce9178">none</span>;
+  <span style="color:#9cdcfe">border-radius</span>: <span style="color:#b5cea8">10px</span>;
+  <span style="color:#9cdcfe">cursor</span>: <span style="color:#ce9178">pointer</span>;
+  <span style="color:#9cdcfe">transition</span>: <span style="color:#ce9178">0.3s</span>;
+}
+<span style="color:#6a9955">/*
+  Efecto cuando se pasa el mouse por encima del botón.
+  El botón cambia ligeramente de color y crece un poco.
+  Esto le da una sensación de "botón interactivo".
+*/</span>
+<span style="color:#c586c0">button:hover</span> {
+  <span style="color:#9cdcfe">background-color</span>: <span style="color:#ce9178">#0b7a3f</span>;
+  <span style="color:#9cdcfe">transform</span>: <span style="color:#ce9178">scale(1.05)</span>;
+}
+<span style="color:#569cd6">&lt;/style&gt;</span>
+<span style="color:#569cd6">&lt;/head&gt;</span>
+<span style="color:#569cd6">&lt;body&gt;</span>
+
+<span style="color:#6a9955">&lt;!-- 
+  Título que indica al usuario que debe escoger un escenario.
+  Es el encabezado principal de toda la página.
+--&gt;</span>
+<span style="color:#569cd6">&lt;h1&gt;</span><span style="color:#dcdcaa">Selecciona un Escenario</span><span style="color:#569cd6">&lt;/h1&gt;</span>
+
+<span style="color:#6a9955">&lt;!-- 
+  Cada botón representa un escenario diferente.
+  Se usa el atributo "data-ruta" para guardar la dirección del archivo HTML.
+  De esta forma, el JavaScript puede leer esa ruta y abrirla cuando se hace clic.
+--&gt;</span>
+<span style="color:#569cd6">&lt;button</span> <span style="color:#9cdcfe">data-ruta</span>=<span style="color:#ce9178">"Escenarios/Bosque/bosque.html"</span><span style="color:#569cd6">&gt;</span>🌳 Bosque<span style="color:#569cd6">&lt;/button&gt;</span>
+<span style="color:#569cd6">&lt;button</span> <span style="color:#9cdcfe">data-ruta</span>=<span style="color:#ce9178">"Escenarios/Callejon/callejon.html"</span><span style="color:#569cd6">&gt;</span>🏙️ Callejón<span style="color:#569cd6">&lt;/button&gt;</span>
+<span style="color:#569cd6">&lt;button</span> <span style="color:#9cdcfe">data-ruta</span>=<span style="color:#ce9178">"Escenarios/Escuela/escuela.html"</span><span style="color:#569cd6">&gt;</span>🏫 Escuela<span style="color:#569cd6">&lt;/button&gt;</span>
+<span style="color:#569cd6">&lt;button</span> <span style="color:#9cdcfe">data-ruta</span>=<span style="color:#ce9178">"Escenarios/Lago/lago.html"</span><span style="color:#569cd6">&gt;</span>🏞️ Lago<span style="color:#569cd6">&lt;/button&gt;</span>
+<span style="color:#569cd6">&lt;button</span> <span style="color:#9cdcfe">data-ruta</span>=<span style="color:#ce9178">"Escenarios/Oceano/Oceano.html"</span><span style="color:#569cd6">&gt;</span>🌊 Océano<span style="color:#569cd6">&lt;/button&gt;</span>
+<span style="color:#569cd6">&lt;button</span> <span style="color:#9cdcfe">data-ruta</span>=<span style="color:#ce9178">"Escenarios/Paramo/paramo.html"</span><span style="color:#569cd6">&gt;</span>⛰️ Páramo<span style="color:#569cd6">&lt;/button&gt;</span>
+<span style="color:#569cd6">&lt;button</span> <span style="color:#9cdcfe">data-ruta</span>=<span style="color:#ce9178">"Escenarios/Parque/parque.html"</span><span style="color:#569cd6">&gt;</span>🌲 Parque<span style="color:#569cd6">&lt;/button&gt;</span>
+<span style="color:#569cd6">&lt;button</span> <span style="color:#9cdcfe">data-ruta</span>=<span style="color:#ce9178">"Escenarios/Volcan/volcan.html"</span><span style="color:#569cd6">&gt;</span>🌋 Volcán<span style="color:#569cd6">&lt;/button&gt;</span>
+
+<span style="color:#569cd6">&lt;script&gt;</span>
+<span style="color:#6a9955">/*
+  Aquí seleccionamos todos los botones de la página.
+  "querySelectorAll" recoge todos los botones para trabajar con ellos.
+*/</span>
+<span style="color:#9cdcfe">document</span>.<span style="color:#dcdcaa">querySelectorAll</span>(<span style="color:#ce9178">"button"</span>).<span style="color:#dcdcaa">forEach</span>(<span style="color:#ce9178">btn</span> =&gt; {
+
+  <span style="color:#6a9955">/*
+    A cada botón le agregamos un "escuchador de clic".
+    Esto significa que cuando el usuario haga clic en ese botón,
+    se ejecutará la función que está aquí dentro.
+  */</span>
+  <span style="color:#ce9178">btn</span>.<span style="color:#dcdcaa">addEventListener</span>(<span style="color:#ce9178">"click"</span>, () =&gt; {
+
+    <span style="color:#6a9955">/*
+      Obtenemos el valor del atributo "data-ruta".
+      Ese atributo contiene la ubicación del archivo HTML del escenario correspondiente.
+    */</span>
+    <span style="color:#569cd6">const</span> ruta = <span style="color:#ce9178">btn</span>.<span style="color:#dcdcaa">getAttribute</span>(<span style="color:#ce9178">"data-ruta"</span>);
+
+    <span style="color:#6a9955">/*
+      Cambiamos la página actual a la ruta obtenida.
+      Esto hace que el navegador abra el archivo del escenario seleccionado.
+      Es básicamente como entrar a otra página al presionar un botón.
+    */</span>
+    <span style="color:#9cdcfe">window</span>.<span style="color:#dcdcaa">location</span>.<span style="color:#dcdcaa">href</span> = ruta;
+  });
+});
+<span style="color:#569cd6">&lt;/script&gt;</span>
+
+<span style="color:#569cd6">&lt;/body&gt;</span>
+<span style="color:#569cd6">&lt;/html&gt;</span>
+</pre>
+
+</body>
+</html>

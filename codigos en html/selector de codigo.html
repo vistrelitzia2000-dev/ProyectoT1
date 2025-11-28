@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Selector de Archivos</title>
+</head>
+<body>
+
+    <h1>Selecciona un archivo</h1>
+
+    <!-- Botón que ya funciona según tu ejemplo -->
+    <button data-ruta="Escenarios/Bosque/bosque.html">🌳 Bosque</button>
+
+    <!-- Tus dos archivos reales -->
+    <button data-ruta="codigos en html/codigo Gene.html">Abrir Gene</button>
+    <button data-ruta="codigos en html/codigo Jose.html">Abrir Jose</button>
+
+    <script>
+        document.querySelectorAll("button").forEach(boton => {
+            boton.addEventListener("click", () => {
+                const ruta = boton.getAttribute("data-ruta");
+                location.href = ruta;
+            });
+        });
+    </script>
+
+</body>
+</html>
