@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PG10</title>
+<style>
+    body, html { margin:0; padding:0; height:100%; }
+    .iframe-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 */
+    }
+    .iframe-container iframe {
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        border:0;
+    }
+</style>
+</head>
+<body>
+
+<div class="iframe-container">
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS7xgfp8x0RpAlVQEGtTbVjPG920FyaSSVKt7I0lG0F9XkUqiZy8EQ4eW2ZA1dcPQ/pubembed?start=false&loop=true&delayms=3000"
+        frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+    </iframe>
+</div>
+
+<script>
+document.addEventListener('keydown', function(event) {
+    if(event.ctrlKey && event.key.toLowerCase() === 'g') {
+        // Ruta de tu archivo PowerPoint
+        const url = 'PG10.pptx';
+        
+        // Crear enlace temporal para descarga
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'presentacion.pptx';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+});
+</script>
+
+<script>
+document.addEventListener("keydown", e => {
+    // Ctrl + I → Volver al index
+    if (e.ctrlKey && e.key.toLowerCase() === "i") {
+        e.preventDefault();
+        window.location.href = "./index.html"; // Ruta al index
+    }
+});
+</script>
+
+</body>
+</html>

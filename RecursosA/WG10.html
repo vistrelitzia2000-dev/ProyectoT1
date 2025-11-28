@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word a Pantalla Completa</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+    iframe {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+</style>
+</head>
+<body>
+
+<!-- Iframe mostrando Word online -->
+<iframe 
+    src="https://docs.google.com/document/d/e/2PACX-1vQtCMCebp1tWi5oe4Kv_UPxC7weaRM0CebpR4YLAgJeYc1q3mF25LiI4vEGTic_Hg/pub?embedded=true" 
+    allowfullscreen>
+</iframe>
+
+<script>
+// Atajo Ctrl + G para descargar el Word real
+document.addEventListener('keydown', function(event) {
+    if(event.ctrlKey && event.key.toLowerCase() === 'g') {
+        const url = 'WG10.docx'; // archivo real para descarga
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'WG10.docx';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+});
+</script>
+
+<script>
+document.addEventListener("keydown", e => {
+    // Ctrl + I → Volver al index
+    if (e.ctrlKey && e.key.toLowerCase() === "i") {
+        e.preventDefault();
+        window.location.href = "./ProyectoT1/index.html"; // Ruta al index
+    }
+});
+</script>
+
+</body>
+</html>

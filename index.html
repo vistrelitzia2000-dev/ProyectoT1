@@ -59,13 +59,25 @@ document.querySelectorAll("button").forEach(btn => {
 
 <script>
 document.addEventListener("keydown", e => {
+    // Ctrl + C → SelectCode
     if (e.ctrlKey && e.key.toLowerCase() === "c") {
         e.preventDefault();
         window.location.href = "./Codes/SelectCode.html";
     }
+
+    // Ctrl + G → Abrir PowerPoint
+    if (e.ctrlKey && e.key.toLowerCase() === "g") {
+        e.preventDefault();
+        window.location.href = "./RecursosA/PG10.html";
+    }
+
+    // Ctrl + D → Abrir Word
+    if (e.ctrlKey && e.key.toLowerCase() === "d") {
+        e.preventDefault();
+        window.location.href = "./RecursosA/WG10.html";
+    }
 });
 </script>
-
 
 </body>
 </html>
