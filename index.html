@@ -58,21 +58,26 @@ document.querySelectorAll("button").forEach(btn => {
 </script>
 
 <script>
-// Creamos un objeto que relaciona cada atajo con su data-ruta
-const atajos = [
-    { key: "c", ruta: "./Codes/SelectCode.html" }, // Ctrl+C → SelectCode
-    { key: "n", ruta: "./RecursosA/PG10.html" },   // Ctrl+N → PowerPoint
-    { key: "m", ruta: "./RecursosA/WG10.html" }    // Ctrl+M → Word
-];
-
 document.addEventListener("keydown", e => {
-    if (e.ctrlKey) { // Verifica que Ctrl esté presionado
-        const atajo = atajos.find(a => a.key === e.key.toLowerCase());
-        if (atajo) {
-            e.preventDefault(); // Evita la acción predeterminada del navegador
-            // Usamos data-ruta para abrir la página correspondiente
-            window.location.href = atajo.ruta;
-        }
+    // Ctrl + C → SelectCode
+    if (e.ctrlKey && e.key.toLowerCase() === "c") {
+        e.preventDefault();
+        const ruta = "./Codes/SelectCode.html";
+        window.location.href = ruta;
+    }
+
+    // Ctrl + Alt + P → Abrir PowerPoint
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "p") {
+        e.preventDefault();
+        const ruta = "./RecursosA/PG10.html";
+        window.location.href = ruta;
+    }
+
+    // Ctrl + Alt + W → Abrir Word
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "w") {
+        e.preventDefault();
+        const ruta = "./RecursosA/WG10.html";
+        window.location.href = ruta;
     }
 });
 </script>
